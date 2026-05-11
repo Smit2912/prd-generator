@@ -66,8 +66,8 @@ export default function HomePage() {
             {object?.userStories?.map((story, index) => (
               <div key={index}>
                 <p>
-                  As a {story?.actor ?? '...'}, I want to {story?.action ?? '...'}, so that{' '}
-                  {story?.benefit ?? '...'}
+                  As a {story?.actor ?? '...'}, I want to{' '}
+                  {story?.action ?? '...'}, so that {story?.benefit ?? '...'}
                 </p>
               </div>
             ))}
@@ -79,7 +79,75 @@ export default function HomePage() {
             {object?.acceptanceCriteria?.map((criteria, index) => (
               <div key={index}>
                 <p>
-                  {criteria?.criterion ?? '...'} (Priority: {criteria?.priority ?? '...'})
+                  {criteria?.criterion ?? '...'} (Priority:{' '}
+                  {criteria?.priority ?? '...'})
+                </p>
+              </div>
+            ))}
+          </section>
+
+          <section>
+            <h2>Technical Considerations</h2>
+
+            {object?.technicalConsiderations?.map((consideration, index) => (
+              <div key={index}>
+                <p>
+                  {consideration?.category ?? '...'}:{' '}
+                  {consideration?.detail ?? '...'}
+                </p>
+              </div>
+            ))}
+          </section>
+
+          <section>
+            <h2>Edge Cases</h2>
+
+            {object?.edgeCases?.map((edgeCase, index) => (
+              <div key={index}>
+                <p>
+                  Scenario: {edgeCase?.scenario ?? '...'}
+                  <br />
+                  Expected Behavior: {edgeCase?.expectedBehavior ?? '...'}
+                </p>
+              </div>
+            ))}
+          </section>
+
+          <section>
+            <h2>Assumptions</h2>
+
+            {object?.assumptions?.map((assumption, index) => (
+              <p key={index}>{assumption?.assumption ?? '...'}</p>
+            ))}
+          </section>
+
+          <section>
+            <h2>Non-Functional Requirements</h2>
+
+            {object?.nonFunctionalRequirements?.map((requirement, index) => (
+              <div key={index}>
+                <p>
+                  Category: {requirement?.category ?? '...'}
+                  <br />
+                  Requirement: {requirement?.requirement ?? '...'}
+                </p>
+              </div>
+            ))}
+          </section>
+
+          <section>
+            <h2>Recommendations</h2>
+
+            {object?.recommendations?.map((recommendation, index) => (
+              <div key={index}>
+                <p>
+                  Issue: {recommendation?.issue ?? '...'}
+                  <br />
+                  Explanation: {recommendation?.explanation ?? '...'}
+                  <br />
+                  Suggested Fix: {recommendation?.suggestedFix ?? '...'}
+                  <br />
+                  Severity: {recommendation?.severity ?? '...'}
                 </p>
               </div>
             ))}

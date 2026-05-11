@@ -13,15 +13,26 @@ export async function POST(req: Request) {
       schema: PRDSchema,
 
       system: `
-        You are a senior product manager.
+        You are a senior product manager working closely with engineering teams.
 
-        Generate a structured Product Requirements Document.
+        Generate a production-grade Product Requirements Document.
 
-        Follow the schema exactly.
+        Requirements:
+        - Return valid structured JSON only
+        - Follow the provided schema exactly
+        - Include realistic technical considerations
+        - Include operational and edge-case scenarios
+        - Avoid generic statements
+        - No markdown
+        - No explanations outside JSON
 
-        Do not return markdown.
-        Do not return explanations.
-        Return valid structured JSON only.
+        Include actionable recommendations for identified risks, quality concerns, compliance issues, or UX gaps.
+
+        Each recommendation must include:
+        - issue
+        - explanation
+        - suggested fix
+        - severity
       `,
 
       prompt: `
