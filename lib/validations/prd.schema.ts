@@ -8,14 +8,37 @@ import { NonFunctionalRequirementSchema } from './non-functional-requirement.sch
 import { RecommendationSchema } from './recommendation-schema';
 
 export const PRDSchema = z.object({
-  title: z.string(),
+  title: z.string().describe('Concise product or feature name for the PRD'),
 
-  overview: z.string().min(10),
+  overview: z
+    .string()
+    .min(10)
+    .describe(
+      'High-level summary of the product, feature, or system being proposed'
+    ),
 
   problemStatement: z.object({
-    summary: z.string().min(10),
-    painPoints: z.array(z.string()),
-    businessImpact: z.string().min(10),
+    summary: z
+      .string()
+      .min(10)
+      .describe('Core business or user problem the feature aims to solve'),
+    painPoints: z
+      .array(
+        z
+          .string()
+          .describe(
+            'Specific frustration, limitation, or inefficiency experienced by users or the business'
+          )
+      )
+      .describe(
+        'List of key pain points caused by the current system or workflow'
+      ),
+    businessImpact: z
+      .string()
+      .min(10)
+      .describe(
+        'Business value, operational improvement, or financial impact expected from solving the problem'
+      ),
   }),
 
   userStories: z.array(UserStorySchema),
@@ -30,7 +53,11 @@ export const PRDSchema = z.object({
 
   nonFunctionalRequirements: z.array(NonFunctionalRequirementSchema),
 
-  recommendations: z.array(RecommendationSchema),
+  recommendations: z
+    .array(RecommendationSchema)
+    .describe(
+      'Actionable engineering or product recommendations for improving the proposed system'
+    ),
 
   outOfScope: z.array(z.string()),
 

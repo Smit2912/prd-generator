@@ -9,7 +9,11 @@ export const NonFunctionalRequirementSchema = z.object({
     'observability',
   ]),
 
-  requirement: z.string(),
+  requirement: z
+    .string()
+    .describe(
+      'Operational, scalability, reliability, or security requirement that the system must satisfy'
+    ),
 });
 
 export type NonFunctionalRequirement = z.infer<
