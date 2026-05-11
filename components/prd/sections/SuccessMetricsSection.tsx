@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type SuccessMetricsSectionProps = {
   successMetrics?: (
@@ -29,7 +30,7 @@ export default function SuccessMetricsSection({
             </div>
           ))
         ) : (
-          <p className='text-zinc-500'>Generating success metrics...</p>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>

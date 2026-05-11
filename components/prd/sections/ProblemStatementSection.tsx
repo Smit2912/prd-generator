@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type ProblemStatementSectionProps = {
   problemStatement?: {
@@ -18,7 +19,11 @@ export default function ProblemStatementSection({
           <h3 className='mb-2 text-sm font-medium text-zinc-500'>Summary</h3>
 
           <p className='leading-7 text-zinc-300'>
-            {problemStatement?.summary || 'Generating summary...'}
+            {problemStatement?.summary ? (
+              problemStatement?.summary
+            ) : (
+              <SectionSkeleton />
+            )}
           </p>
         </div>
 
@@ -33,7 +38,7 @@ export default function ProblemStatementSection({
                 <li key={index}>{point}</li>
               ))
             ) : (
-              <li>Generating pain points...</li>
+              <SectionSkeleton />
             )}
           </ul>
         </div>
@@ -44,8 +49,11 @@ export default function ProblemStatementSection({
           </h3>
 
           <p className='leading-7 text-zinc-300'>
-            {problemStatement?.businessImpact ||
-              'Generating business impact...'}
+            {problemStatement?.businessImpact ? (
+              problemStatement?.businessImpact
+            ) : (
+              <SectionSkeleton />
+            )}
           </p>
         </div>
       </div>

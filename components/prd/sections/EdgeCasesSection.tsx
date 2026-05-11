@@ -1,5 +1,6 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type EdgeCasesSectionProps = {
   edgeCases?: (
@@ -49,7 +50,7 @@ export default function EdgeCasesSection({ edgeCases }: EdgeCasesSectionProps) {
             </div>
           ))
         ) : (
-          <p className='text-zinc-500'>Generating edge cases...</p>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>

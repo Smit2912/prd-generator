@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type AssumptionsSectionProps = {
   assumptions?: (
@@ -20,7 +21,7 @@ export default function AssumptionsSection({
             <li key={index}>{assumption?.assumption || '...'}</li>
           ))
         ) : (
-          <li>Generating assumptions...</li>
+          <SectionSkeleton />
         )}
       </ul>
     </SectionCard>

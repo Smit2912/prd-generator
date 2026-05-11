@@ -1,5 +1,6 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type TechnicalConsiderationsSectionProps = {
   technicalConsiderations?: (
@@ -50,9 +51,7 @@ export default function TechnicalConsiderationsSection({
             </div>
           ))
         ) : (
-          <p className='text-zinc-500'>
-            Generating technical considerations...
-          </p>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>

@@ -38,7 +38,15 @@ export default function PRDViewer({ data, isLoading, error }: PRDViewerProps) {
     data?.title ||
     data?.overview ||
     data?.problemStatement ||
-    data?.userStories?.length
+    data?.userStories?.length ||
+    data?.acceptanceCriteria?.length ||
+    data?.technicalConsiderations?.length ||
+    data?.edgeCases?.length ||
+    data?.assumptions?.length ||
+    data?.nonFunctionalRequirements?.length ||
+    data?.recommendations?.length ||
+    data?.outOfScope?.length ||
+    data?.successMetrics?.length
   );
 
   if (!hasAnyData && !isLoading) {

@@ -1,5 +1,6 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type AcceptanceCriteriaSectionProps = {
   acceptanceCriteria?: (
@@ -36,7 +37,7 @@ export default function AcceptanceCriteriaSection({
             </div>
           ))
         ) : (
-          <p className='text-zinc-500'>Generating acceptance criteria...</p>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>

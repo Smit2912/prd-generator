@@ -1,5 +1,6 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type RecommendationsSectionProps = {
   recommendations?: (
@@ -73,7 +74,7 @@ export default function RecommendationsSection({
             </div>
           ))
         ) : (
-          <p className='text-zinc-500'>Generating recommendations...</p>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>

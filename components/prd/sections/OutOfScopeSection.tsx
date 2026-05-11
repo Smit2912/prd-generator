@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type OutOfScopeSectionProps = {
   outOfScope?: (string | undefined)[];
@@ -13,7 +14,7 @@ export default function OutOfScopeSection({
         {outOfScope?.length ? (
           outOfScope.map((item, index) => <li key={index}>{item || '...'}</li>)
         ) : (
-          <li>Generating out of scope items...</li>
+          <SectionSkeleton />
         )}
       </ul>
     </SectionCard>

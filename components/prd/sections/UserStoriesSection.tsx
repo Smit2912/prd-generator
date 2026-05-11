@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type UserStoriesSectionProps = {
   userStories?: (
@@ -34,9 +35,7 @@ export default function UserStoriesSection({
             </div>
           ))
         ) : (
-          <div className='rounded-xl border border-dashed border-zinc-800 p-4 text-zinc-500'>
-            Generating user stories...
-          </div>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>

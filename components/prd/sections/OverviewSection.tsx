@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type OverviewSectionProps = {
   overview?: string;
@@ -7,9 +8,11 @@ type OverviewSectionProps = {
 export default function OverviewSection({ overview }: OverviewSectionProps) {
   return (
     <SectionCard title='Overview'>
-      <p className='leading-7 text-zinc-300'>
-        {overview || 'Generating overview...'}
-      </p>
+      {overview ? (
+        <p className='leading-7 text-zinc-300'>{overview}</p>
+      ) : (
+        <SectionSkeleton />
+      )}
     </SectionCard>
   );
 }

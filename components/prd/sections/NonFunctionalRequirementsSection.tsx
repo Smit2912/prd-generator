@@ -1,4 +1,5 @@
 import SectionCard from '../shared/SectionCard';
+import SectionSkeleton from '../shared/SectionSkeleton';
 
 type NonFunctionalRequirementsSectionProps = {
   nonFunctionalRequirements?: (
@@ -35,7 +36,7 @@ export default function NonFunctionalRequirementsSection({
             </div>
           ))
         ) : (
-          <p className='text-zinc-500'>Generating requirements...</p>
+          <SectionSkeleton />
         )}
       </div>
     </SectionCard>
