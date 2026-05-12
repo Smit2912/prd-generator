@@ -13,7 +13,7 @@ export default function SectionCard({ title, children }: SectionCardProps) {
           {title}
         </h2>
 
-        <div className='h-2 w-2 rounded-full bg-emerald-400 animate-pulse' />
+        {/* <div className='h-2 w-2 rounded-full bg-emerald-400 animate-pulse' /> */}
       </div>
 
       {children}

@@ -18,13 +18,13 @@ export default function ProblemStatementSection({
         <div>
           <h3 className='mb-2 text-sm font-medium text-zinc-500'>Summary</h3>
 
-          <p className='leading-7 text-zinc-300'>
+          <div className='leading-7 text-zinc-300'>
             {problemStatement?.summary ? (
               problemStatement?.summary
             ) : (
               <SectionSkeleton />
             )}
-          </p>
+          </div>
         </div>
 
         <div>
@@ -48,13 +48,13 @@ export default function ProblemStatementSection({
             Business Impact
           </h3>
 
-          <p className='leading-7 text-zinc-300'>
+          <div className='leading-7 text-zinc-300'>
             {problemStatement?.businessImpact ? (
               problemStatement?.businessImpact
             ) : (
               <SectionSkeleton />
             )}
-          </p>
+          </div>
         </div>
       </div>
     </SectionCard>
