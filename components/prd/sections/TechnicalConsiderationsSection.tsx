@@ -1,6 +1,7 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
 import SectionSkeleton from '../shared/SectionSkeleton';
+import CopyButton from '../shared/CopyButton';
 
 type TechnicalConsiderationsSectionProps = {
   technicalConsiderations?: (
@@ -23,14 +24,28 @@ type TechnicalConsiderationsSectionProps = {
 export default function TechnicalConsiderationsSection({
   technicalConsiderations,
 }: TechnicalConsiderationsSectionProps) {
+  const copyText =
+    technicalConsiderations
+      ?.map(
+        (item) =>
+          `Category: ${item?.category?.toUpperCase()}
+Priority: ${item?.priority}
+
+${item?.detail}`
+      )
+      .join('\n\n-------------------\n\n') ?? '';
+
   return (
-    <SectionCard title='Technical Considerations'>
+    <SectionCard
+      title='Technical Considerations'
+      actions={technicalConsiderations ? <CopyButton text={copyText} /> : null}
+    >
       <div className='space-y-4'>
         {technicalConsiderations?.length ? (
           technicalConsiderations.map((consideration, index) => (
             <div
               key={index}
-              className='rounded-xl border border-zinc-800 bg-zinc-950/40 p-5 space-y-4'
+              className='rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 space-y-4'
             >
               <div className='flex items-center justify-between'>
                 <h3 className='text-sm font-semibold uppercase tracking-wide text-zinc-400'>

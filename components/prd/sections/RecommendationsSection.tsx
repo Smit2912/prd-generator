@@ -1,6 +1,7 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
 import SectionSkeleton from '../shared/SectionSkeleton';
+import CopyButton from '../shared/CopyButton';
 
 type RecommendationsSectionProps = {
   recommendations?: (
@@ -22,14 +23,33 @@ type RecommendationsSectionProps = {
 export default function RecommendationsSection({
   recommendations,
 }: RecommendationsSectionProps) {
+  const copyText =
+    recommendations
+      ?.map(
+        (item) =>
+          `Issue: ${item?.issue}
+Severity: ${item?.severity}
+Related Section: ${item?.relatedSection}
+
+Explanation:
+${item?.explanation}
+
+Suggested Fix:
+${item?.suggestedFix}`
+      )
+      .join('\n\n-------------------\n\n') ?? '';
+
   return (
-    <SectionCard title='AI Recommendations'>
+    <SectionCard
+      title='AI Recommendations'
+      actions={recommendations ? <CopyButton text={copyText} /> : null}
+    >
       <div className='space-y-5'>
         {recommendations?.length ? (
           recommendations.map((recommendation, index) => (
             <div
               key={index}
-              className='rounded-2xl border border-zinc-800 bg-zinc-950/40 p-5 space-y-5'
+              className='rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 space-y-5'
             >
               <div className='flex items-start justify-between gap-4'>
                 <div>

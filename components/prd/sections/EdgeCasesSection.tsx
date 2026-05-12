@@ -1,6 +1,7 @@
 import Badge from '../shared/Badge';
 import SectionCard from '../shared/SectionCard';
 import SectionSkeleton from '../shared/SectionSkeleton';
+import CopyButton from '../shared/CopyButton';
 
 type EdgeCasesSectionProps = {
   edgeCases?: (
@@ -16,14 +17,29 @@ type EdgeCasesSectionProps = {
 };
 
 export default function EdgeCasesSection({ edgeCases }: EdgeCasesSectionProps) {
+  const copyText =
+    edgeCases
+      ?.map(
+        (item) =>
+          `Scenario: ${item?.scenario}
+Priority: ${item?.priority}
+
+Expected Behaviour:
+${item?.expectedBehavior}`
+      )
+      .join('\n\n-------------------\n\n') ?? '';
+
   return (
-    <SectionCard title='Edge Cases'>
+    <SectionCard
+      title='Edge Cases'
+      actions={edgeCases ? <CopyButton text={copyText} /> : null}
+    >
       <div className='space-y-4'>
         {edgeCases?.length ? (
           edgeCases.map((edgeCase, index) => (
             <div
               key={index}
-              className='rounded-xl border border-zinc-800 p-5 space-y-4'
+              className='rounded-xl border border-zinc-800 p-5 space-y-4 bg-zinc-900/50'
             >
               <div className='flex items-center justify-between gap-4'>
                 <h3 className='font-medium text-white'>
