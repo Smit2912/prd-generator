@@ -1,6 +1,7 @@
 import SectionCard from '../shared/SectionCard';
 import SectionSkeleton from '../shared/SectionSkeleton';
 import CopyButton from '../shared/CopyButton';
+import CategoryPill from '../shared/CategoryPill';
 
 type NonFunctionalRequirementsSectionProps = {
   nonFunctionalRequirements?: (
@@ -44,11 +45,15 @@ ${item?.requirement}`
           nonFunctionalRequirements.map((requirement, index) => (
             <div
               key={index}
-              className='rounded-xl border border-zinc-800 p-4 bg-zinc-900/50'
+              className='rounded-xl border border-zinc-800 p-4 bg-zinc-900/50 transition hover:border-zinc-700'
             >
-              <p className='mb-2 text-sm font-medium uppercase tracking-wide text-zinc-500'>
-                {requirement?.category || '...'}
-              </p>
+              <div className='mb-3'>
+                {requirement?.category ? (
+                  <CategoryPill category={requirement.category} />
+                ) : (
+                  <div className='h-6 w-24 rounded-full bg-zinc-800 animate-pulse' />
+                )}
+              </div>
 
               <p className='leading-7 text-zinc-300'>
                 {requirement?.requirement || '...'}

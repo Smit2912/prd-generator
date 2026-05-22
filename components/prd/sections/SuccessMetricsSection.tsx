@@ -1,6 +1,8 @@
 import SectionCard from '../shared/SectionCard';
 import SectionSkeleton from '../shared/SectionSkeleton';
 import CopyButton from '../shared/CopyButton';
+import MetricCard from '../cards/MetricCard';
+import SectionGrid from '../shared/SectionGrid';
 
 type SuccessMetricsSectionProps = {
   successMetrics?: (
@@ -25,27 +27,23 @@ Target: ${item?.target}`
       .join('\n\n') ?? '';
 
   return (
-    <SectionCard title='Success Metrics' actions={successMetrics ? <CopyButton text={copyText} /> : null}>
-      <div className='space-y-4'>
+    <SectionCard
+      title='Success Metrics'
+      actions={successMetrics ? <CopyButton text={copyText} /> : null}
+    >
+      <SectionGrid columns={2}>
         {successMetrics?.length ? (
           successMetrics.map((metric, index) => (
-            <div
+            <MetricCard
               key={index}
-              className='rounded-xl border border-zinc-800 p-4 bg-zinc-900/50'
-            >
-              <h3 className='font-medium text-white'>
-                {metric?.metric || '...'}
-              </h3>
-
-              <p className='mt-2 text-zinc-400'>
-                {metric?.target || 'Generating target...'}
-              </p>
-            </div>
+              metric={metric?.metric}
+              target={metric?.target}
+            />
           ))
         ) : (
           <SectionSkeleton />
         )}
-      </div>
+      </SectionGrid>
     </SectionCard>
   );
 }

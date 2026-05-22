@@ -31,7 +31,7 @@ export default function UserStoriesSection({
           userStories?.map((story, index) => (
             <div
               key={index}
-              className='rounded-xl border border-zinc-800 bg-zinc-900/50 p-4'
+              className='rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition hover:border-zinc-700'
             >
               <p className='leading-7 text-zinc-300'>
                 <span className='font-medium text-white'>As a</span>{' '}

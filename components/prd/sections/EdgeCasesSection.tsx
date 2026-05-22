@@ -39,7 +39,7 @@ ${item?.expectedBehavior}`
           edgeCases.map((edgeCase, index) => (
             <div
               key={index}
-              className='rounded-xl border border-zinc-800 p-5 space-y-4 bg-zinc-900/50'
+              className='rounded-xl border border-zinc-800 p-5 space-y-4 bg-zinc-900/50 transition hover:border-zinc-700'
             >
               <div className='flex items-center justify-between gap-4'>
                 <h3 className='font-medium text-white'>

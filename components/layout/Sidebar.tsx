@@ -63,19 +63,19 @@ export default function Sidebar({ isGenerating }: SidebarProps) {
               <Link
                 key={session.id}
                 href={`/prd/${session.id}`}
-                className={`block rounded-xl border p-3 transition ${isGenerating ? 'pointer-events-none opacity-50' : ''
+                className={`block rounded-xl p-3 transition ${isGenerating ? 'pointer-events-none opacity-50' : ''
                   } ${pathname === `/prd/${session.id}`
-                    ? 'border-white bg-zinc-900'
-                    : 'border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900'
+                    ? 'bg-zinc-900'
+                    : 'hover:bg-zinc-900'
                   }`}
               >
-                <p className='line-clamp-2 text-sm font-medium text-zinc-200'>
+                <p className='line-clamp-1 text-sm font-medium text-zinc-200'>
                   {session?.prompt}
                 </p>
 
-                <p className='mt-2 text-xs text-zinc-500'>
+                {/* <p className='mt-2 text-xs text-zinc-500'>
                   {new Date(session?.created_at).toLocaleDateString()}
-                </p>
+                </p> */}
               </Link>
             ))}
           </div>

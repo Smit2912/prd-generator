@@ -1,4 +1,4 @@
-import Badge from '../shared/Badge';
+import PriorityBadge from '../shared/PriorityBadge';
 import CopyButton from '../shared/CopyButton';
 import SectionCard from '../shared/SectionCard';
 import SectionSkeleton from '../shared/SectionSkeleton';
@@ -22,22 +22,22 @@ export default function AcceptanceCriteriaSection({
       .join('\n\n') ?? '';
 
   return (
-    <SectionCard title='Acceptance Criteria' actions={acceptanceCriteria ? <CopyButton text={copyText} /> : null}>
+    <SectionCard
+      title='Acceptance Criteria'
+      actions={acceptanceCriteria ? <CopyButton text={copyText} /> : null}
+    >
       <div className='space-y-4'>
         {acceptanceCriteria?.length ? (
           acceptanceCriteria.map((criteria, index) => (
             <div
               key={index}
-              className='rounded-xl border border-zinc-800 p-4 space-y-3 bg-zinc-900/50'
+              className='rounded-xl border border-zinc-800 p-4 space-y-3 bg-zinc-900/50 transition hover:border-zinc-700'
             >
               <div className='flex items-center justify-between gap-4'>
                 <p className='text-zinc-300 leading-7'>{criteria?.criterion}</p>
 
                 {criteria?.priority && (
-                  <Badge
-                    label={criteria?.priority}
-                    variant={criteria?.priority}
-                  />
+                  <PriorityBadge priority={criteria.priority} />
                 )}
               </div>
             </div>
