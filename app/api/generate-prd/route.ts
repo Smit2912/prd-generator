@@ -33,6 +33,37 @@ export async function POST(req: Request) {
         - explanation
         - suggested fix
         - severity
+
+        Each array item must ALWAYS match the schema exactly.
+
+        STRICT RULES:
+        - Never return strings where objects are expected
+        - Never return objects where strings are expected
+        - Never omit required object fields
+        - Never invent additional fields
+        - Never change enum values
+
+        ENUM RULES:
+        - acceptanceCriteria.priority:
+          "low" | "medium" | "high"
+
+        - recommendations.severity:
+          "low" | "medium" | "high"
+
+        - technicalConsiderations.priority:
+          "must-have" | "important" | "nice-to-have"
+
+        - edgeCases.priority:
+          "critical" | "important" | "minor"
+
+        ARRAY RULES:
+        - successMetrics must ALWAYS be an array of objects
+        - userStories must ALWAYS be an array of objects
+        - recommendations must ALWAYS be an array of objects
+        - technicalConsiderations must ALWAYS be an array of objects
+        - acceptanceCriteria must ALWAYS be an array of objects
+
+        Never return plain strings inside object arrays.
       `,
 
       prompt: `

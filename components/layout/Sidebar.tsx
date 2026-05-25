@@ -19,7 +19,9 @@ export default function Sidebar({ isGenerating }: SidebarProps) {
   return (
     <div className='flex h-screen flex-col'>
       <div className='border-b border-zinc-800 p-6'>
-        <h1 className='text-xl font-semibold tracking-tight'>PRD AI</h1>
+        <Link href='/' className='text-xl font-semibold tracking-tight'>
+          PRD AI
+        </Link>
 
         <p className='mt-2 text-sm text-zinc-500'>
           AI-powered product requirement generation
@@ -63,11 +65,13 @@ export default function Sidebar({ isGenerating }: SidebarProps) {
               <Link
                 key={session.id}
                 href={`/prd/${session.id}`}
-                className={`block rounded-xl p-3 transition ${isGenerating ? 'pointer-events-none opacity-50' : ''
-                  } ${pathname === `/prd/${session.id}`
-                    ? 'bg-zinc-900'
+                className={`block rounded-xl p-3 transition ${
+                  isGenerating ? 'pointer-events-none opacity-50' : ''
+                } ${
+                  pathname === `/prd/${session.id}`
+                    ? 'bg-stone-800'
                     : 'hover:bg-zinc-900'
-                  }`}
+                }`}
               >
                 <p className='line-clamp-1 text-sm font-medium text-zinc-200'>
                   {session?.prompt}
