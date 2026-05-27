@@ -28,7 +28,7 @@ export default function Sidebar({ isGenerating }: SidebarProps) {
         </p>
       </div>
 
-      <div className='flex-1 p-4'>
+      <div className='flex-1 overflow-y-auto p-4'>
         <button
           className='w-full rounded-xl bg-white px-4 py-3 text-sm font-medium text-black cursor-pointer transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50'
           onClick={() => router.push('/')}
@@ -74,7 +74,7 @@ export default function Sidebar({ isGenerating }: SidebarProps) {
                 }`}
               >
                 <p className='line-clamp-1 text-sm font-medium text-zinc-200'>
-                  {session?.prompt}
+                  {session?.prd?.title || session?.prompt}
                 </p>
 
                 {/* <p className='mt-2 text-xs text-zinc-500'>
