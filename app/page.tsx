@@ -38,7 +38,7 @@ export default function HomePage() {
         setPrompt={setPrompt}
       />
 
-      <div className='mx-auto max-w-5xl p-6'>
+      <div className='mx-auto max-w-5xl p-6 pb-36'>
         <EmptyState />
       </div>
     </AppShell>
